@@ -1,0 +1,42 @@
+{
+  "name": "tdax-sdk-js",
+  "version": "1.0.0",
+  "description": "Description",
+  "main": "./lib/index.js",
+  "repository": "https://github.com/your-username/your-project-name",
+  "author": "Your name",
+  "license": "MIT",
+  "scripts": {
+    "start": "yarn compile && node ./lib",
+    "compile": "babel src -d lib",
+    "compile-watch": "babel -w src -d lib",
+    "prepublish": "yarn compile",
+    "test": "NODE_ENV=test tape -r babel-register test/unit/{**/,}*.js | tap-spec",
+    "test-integration": "NODE_ENV=test tape -r babel-register test/integration/{**/,}*.js | tap-spec"
+  },
+  "files": [
+    "lib/"
+  ],
+  "dependencies": {
+    "axios": "^0.16.2",
+    "bignumber.js": "^4.0.4",
+    "flow-bin": "^0.58.0",
+    "humps": "^2.0.1",
+    "json-bigint": "^0.2.3",
+    "lodash": "^4.17.4",
+    "moment": "^2.18.1",
+    "qs": "^6.4.0",
+    "url-join": "^2.0.2"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-preset-env": "^1.6.0",
+    "babel-register": "^6.24.1",
+    "eslint": "^4.4.0",
+    "eslint-config-google": "^0.9.1",
+    "eslint-plugin-react": "^7.1.0",
+    "sinon": "^2.4.1",
+    "tap-spec": "^4.1.1",
+    "tape": "^4.8.0"
+  }
+}
