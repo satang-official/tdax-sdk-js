@@ -5,6 +5,7 @@ import { URL } from '../constants'
 import { sign } from '../signature'
 // export
 export { cancel } from './cancel'
+export { list } from './list'
 
 /**
  * Create new order
