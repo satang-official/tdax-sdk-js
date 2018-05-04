@@ -6,12 +6,12 @@ const config = {
   userid: ''
 }
 
-const orderid = 734682
+const orderid = 765939
 
 lib.order.cancel(config, orderid)
   .then(r => {
-    console.log('Cancel Completed,', r)
+    console.log('Cancel Order Completed,', r)
   })
   .catch(e => {
-    console.log('Cancel failed,', e)
+    console.log('Cancel Order Failed,', e)
   })

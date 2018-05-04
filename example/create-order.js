@@ -11,14 +11,14 @@ const order = {
   Side: 'sell',
   Symbol: 'XLM',
   Market: 'THB',
-  Price: 987654,
+  Price: 9987654,
   Qty: 1e7,
 }
 
 lib.order.create(config,order)
   .then(r => {
-    console.log('Create Completed,', r)
+    console.log('Create Order Completed,', r)
   })
   .catch(e => {
-    console.log('Create failed,', e)
+    console.log('Create Order Failed,', e)
   })

@@ -3,34 +3,35 @@ import axios from 'axios'
 import bn from 'bignumber.js'
 import { URL } from '../constants'
 import { sign } from '../signature'
+
 // export
-export { cancel } from './cancel'
+export { list } from './list'
 
 /**
  * Create new order
  * @param {object} config
- * @param {object} order
+ * @param {object} withdrawal
  * @return {Promise<object>} created order object.
  */
-export const create = (config, order) => {
+export const create = (config, withdrawal) => {
   const { apikey, secret } = config
 
   // TODO: Move this to shared var for all file in order
-  const url = urljoin(URL, 'orders')
+  const url = urljoin(URL, 'withdrawals')
 
-  order.Nonce = +(new Date())
+  withdrawal.Nonce = +(new Date())
   bn.config({ EXPONENTIAL_AT: 50 })
-  if (order.Qty) {
-    order.Qty = new bn(order.Qty).toString()
+  if (withdrawal.Fields.Amount) {
+    withdrawal.Fields.Amount = new bn(withdrawal.Fields.Amount).toString()
   }
 
   const headers = Object.assign({}, {
     headers: {
       Authorization: `TDAX-API ${apikey}`,
-      Signature: sign(secret, order)
+      Signature: sign(secret, withdrawal)
     }
   })
 
-  return axios.post(url, order, headers)
+  return axios.post(url, withdrawal, headers)
     .then(res => res.data)
 }
