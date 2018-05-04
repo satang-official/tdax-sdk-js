@@ -8,10 +8,10 @@ import { sign } from '../signature'
  * @param {object} config {apikey,secret,userid}
  * @return {Promise<object>} User detail object.
  */
-export const cancel = (config) => {
+export const cancel = (config, orderID) => {
   const { apikey, userid, secret } = config
 
-  const url = urljoin(URL, 'orders', userid)
+  const url = urljoin(URL, 'orders', orderID)
   const headers = Object.assign({}, {
     headers: {
       Authorization: `TDAX-API ${apikey}`,
