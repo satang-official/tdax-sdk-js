@@ -25,7 +25,7 @@
     "json-bigint": "^0.2.3",
     "lodash": "^4.17.13",
     "moment": "^2.18.1",
-    "qs": "^6.4.0",
+    "qs": "^6.5.3",
     "url-join": "^2.0.2"
   },
   "devDependencies": {
